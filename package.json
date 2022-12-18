@@ -1,0 +1,27 @@
+{
+  "name": "the-heart-of-the-sea",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/init.js",
+  "scripts": {
+    "pack": "webpack",
+    "watch": "webpack --watch",
+    "lint": "standard",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinkBondy/The-Heart-of-the-Sea.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LinkBondy/The-Heart-of-the-Sea/issues"
+  },
+  "homepage": "https://github.com/LinkBondy/The-Heart-of-the-Sea#readme",
+  "dependencies": {
+    "standard": "^17.0.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
