@@ -1,9 +1,31 @@
-function loadGame() {
-    var canvas = document.getElementById("mycanvas");
-    var context = canvas.getContext("2d");
-    context.fillStyle = "rgb(0, 150, 255)";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    console.log("LoadGame Works");
+"use strict";
+const { draw } = require('./draw')
+const { images } = require('./images')
+const { canvas } = require('./canvas')
+
+const game = {
+    mainLoop: function() {
+        draw.drawBackround();
+    }
+ }
+
+function StartGame () {
+    game.mainLoop()
 }
+
+function ImageLoadingLoop () {
+    if (images.stillLoading > 0) {
+      window.setTimeout(ImageLoadingLoop, 1000 / 60)
+    } else {
+      StartGame()
+    }
+  }
+    
+function loadGame() {
+    canvas.createCanvasContext()
+    images.LoadImages()
+    ImageLoadingLoop()
+    console.log("loadGame");
+};
 
 document.addEventListener('DOMContentLoaded', loadGame)
