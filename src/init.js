@@ -5,7 +5,8 @@ const { canvas } = require('./canvas')
 
 const game = {
     mainLoop: function() {
-        draw.drawBackround();
+        draw.drawGame();
+        window.requestAnimationFrame(game.mainLoop)
     }
  }
 

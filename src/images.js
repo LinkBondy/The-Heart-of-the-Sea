@@ -3,6 +3,7 @@ export const images = {
     stillLoading: 0,
     LoadImages: function () {
       images.Water_Medium = LoadImage('images/Water_Medium.png')
+      images.Boat = LoadImage('images/Boat.png')
     }
   }
   
