@@ -1,12 +1,16 @@
 "use strict";
-const { draw } = require('./draw')
 const { images } = require('./images')
 const { canvas } = require('./canvas')
+const { GameController } = require('./gameController')
 
 const game = {
     mainLoop: function() {
-        draw.drawGame();
-        window.requestAnimationFrame(game.mainLoop)
+        this.gameController.Draw()
+        this.gameController.Update()
+        window.requestAnimationFrame(game.mainLoop.bind(game))
+    },
+    init: function() {
+      this.gameController = new GameController()
     }
  }
 
@@ -25,8 +29,10 @@ function ImageLoadingLoop () {
 function loadGame() {
     canvas.createCanvasContext()
     images.LoadImages()
+    game.init()
     ImageLoadingLoop()
     console.log("loadGame");
+
 };
 
 document.addEventListener('DOMContentLoaded', loadGame)
