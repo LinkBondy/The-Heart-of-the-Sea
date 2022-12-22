@@ -2,15 +2,17 @@
 const { images } = require('./images')
 const { canvas } = require('./canvas')
 const { GameController } = require('./gameController')
+const { Keydown } = require('./keydown');
+const { gameStates } = require('./gameStates');
 
 const game = {
     mainLoop: function() {
-        this.gameController.Draw()
-        this.gameController.Update()
+        gameStates.gameController.Draw()
+        gameStates.gameController.Update()
         window.requestAnimationFrame(game.mainLoop.bind(game))
     },
     init: function() {
-      this.gameController = new GameController()
+      gameStates.gameController = new GameController()
     }
  }
 
@@ -36,3 +38,4 @@ function loadGame() {
 };
 
 document.addEventListener('DOMContentLoaded', loadGame)
+document.addEventListener('keydown', Keydown/*Keydown.bind(undefined, game)*/)
